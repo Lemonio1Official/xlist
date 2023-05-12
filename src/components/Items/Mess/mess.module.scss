@@ -1,0 +1,45 @@
+.mess {
+  position: fixed;
+  width: 250px;
+  height: 64px;
+  padding: 0 4px 0 8px;
+  background: rgba(50, 50, 50, 0.77);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+  right: 0;
+  bottom: 8px;
+  transform: translate(calc(100% + 4px));
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  &.active {
+    transform: translate(0);
+    @keyframes timer {
+      from {
+        width: 100%;
+      }
+      to {
+        width: 0;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: rgb(255, 150, 12);
+      animation: 5s linear 0s timer forwards;
+    }
+  }
+  i {
+    font-size: 24px;
+    color: rgb(255, 56, 56);
+    margin-right: 8px;
+    &.check {
+      color: rgb(64, 255, 47);
+    }
+  }
+}

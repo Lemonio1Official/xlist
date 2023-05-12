@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+:global(*) {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+  color: #fff;
+  font-size: 16px;
+}
+
+:global(button) {
+  cursor: pointer;
+}
+
+:global(a) {
+  text-decoration: none;
+}
+
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #072380;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(40, 176, 255);
+  }
+  .main {
+    position: relative;
+    padding: 16px 0;
+    flex: 1;
+  }
+}

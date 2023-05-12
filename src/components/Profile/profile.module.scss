@@ -1,0 +1,63 @@
+.profile {
+  display: flex;
+  height: 95%;
+  .list {
+    width: 240px;
+    background: #0002;
+    list-style: none;
+    cursor: default;
+    p {
+      padding: 8px;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i {
+        font-size: 24px;
+        transition: 0.3s;
+      }
+    }
+    &:hover {
+      p {
+        i {
+          color: rgb(40, 176, 255);
+        }
+      }
+    }
+    li {
+      font-size: 20px;
+      margin: 4px 0;
+      background: #0003;
+      position: relative;
+      a {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        text-transform: capitalize;
+        transition: 0.2s;
+        &:hover {
+          color: rgb(255, 150, 12);
+        }
+      }
+      &.active::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: radial-gradient(#0000 20%, rgb(255, 150, 12) 40%);
+        border-radius: 50%;
+      }
+    }
+  }
+  section {
+    flex: 1;
+    height: 100%;
+    background: linear-gradient(45deg, #0002, #0000, #0002);
+    padding: 16px;
+  }
+}

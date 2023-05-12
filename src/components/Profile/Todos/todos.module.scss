@@ -1,0 +1,284 @@
+.todos {
+  height: 100%;
+  .tasks {
+    width: 100%;
+    list-style: none;
+    margin-bottom: 8px;
+    li {
+      position: relative;
+      background: #0002;
+      cursor: default;
+      padding: 4px 0;
+      margin: 4px 0;
+      display: flex;
+      align-items: center;
+      span {
+        display: block;
+        width: 300px;
+        margin: 0 8px;
+        white-space: nowrap;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+          height: 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgb(40, 176, 255);
+        }
+      }
+      b {
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        margin: 0 8px;
+        s {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          margin-left: 4px;
+          padding: 4px;
+          font-size: 18px;
+          background: #0003;
+          border-radius: 5px;
+          color: rgb(40, 176, 255);
+        }
+      }
+      div {
+        position: absolute;
+        right: 8px;
+        display: flex;
+        i {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          margin: 0 4px;
+          cursor: pointer;
+          border-radius: 50%;
+          transition: 0.2s;
+          color: rgb(40, 176, 255);
+          &:nth-child(2) {
+            color: rgba(255, 45, 45, 0.9);
+          }
+          &:hover {
+            background: rgb(255, 150, 12, 0.25);
+          }
+        }
+      }
+      &.empty {
+        text-align: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.75);
+      }
+    }
+  }
+  .form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding: 16px;
+    margin: 24px auto 0;
+    background: rgb(40, 176, 255, 0.15);
+    .title {
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 20px;
+      padding: 4px;
+      transition: 0.2s;
+      &:hover {
+        color: rgba(255, 45, 45, 0.9);
+      }
+    }
+    .item {
+      position: relative;
+      width: 100%;
+      margin-bottom: 8px;
+      .addreason {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        b {
+          padding: 4px 16px;
+          background: #0002;
+          font-weight: 400;
+          transition: 0.2s;
+          cursor: pointer;
+          &:hover {
+            color: rgb(255, 150, 12);
+          }
+        }
+      }
+      .fields {
+        div {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          margin-top: 8px;
+          input {
+            width: 100%;
+            padding: 4px;
+            background: none;
+            background: #0002;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom: 2px solid rgb(255, 150, 12, 0.75);
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            &:focus {
+              border-bottom: 2px solid rgb(255, 150, 12);
+            }
+          }
+          span {
+            display: block;
+            text-align: end;
+            height: 16px;
+            transform: translateY(-4px);
+            color: rgba(255, 45, 45, 0.9);
+          }
+        }
+      }
+      .list {
+        width: max-content;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        margin-top: 8px;
+        li {
+          width: 40px;
+          height: 40px;
+          background: #072380;
+          transition: 0.2s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          margin: 0 4px;
+          transition: 0.2s;
+          user-select: none;
+          &:hover {
+            color: rgb(255, 150, 12);
+          }
+          &.active {
+            background: #0004;
+            color: rgb(40, 176, 255);
+            font-size: 18px;
+          }
+        }
+        &.days {
+          width: 100%;
+        }
+      }
+      .reasons {
+        margin-top: 8px;
+        list-style: none;
+        border: 1px solid rgb(40, 176, 255, 0.5);
+        max-height: 90px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgb(40, 176, 255);
+        }
+        li {
+          min-width: 100%;
+          position: relative;
+          display: block;
+          align-items: center;
+          height: 28px;
+          margin-bottom: 2px;
+          background: #0002;
+          padding: 2px 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          i {
+            font-size: 20px;
+            &.delete {
+              position: absolute;
+              top: 50%;
+              right: 4px;
+              transform: translateY(-50%);
+              font-size: 20px;
+              color: rgba(255, 255, 255, 0.75);
+              cursor: pointer;
+              &:hover {
+                color: rgba(255, 45, 45, 0.9);
+              }
+            }
+          }
+        }
+        .empty {
+          justify-content: center;
+          color: rgba(255, 255, 255, 0.75);
+        }
+      }
+      .addReason {
+        position: absolute;
+        width: 100%;
+        height: 84px;
+        background: #072380;
+        left: 0;
+        top: 0;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgb(40, 176, 255);
+        }
+        p {
+          height: 26px;
+          margin-bottom: 2px;
+          padding: 0 4px;
+          background: #0002;
+          cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    button {
+      width: 100%;
+      background: #0003;
+      margin-top: 16px;
+      padding: 8px 0;
+      text-align: center;
+      font-size: 18px;
+      transition: 0.2s;
+      &:hover {
+        background: #0004;
+        color: rgb(40, 176, 255);
+      }
+      &:active {
+        background: #0007;
+      }
+    }
+  }
+  .addNewTask {
+    width: 100%;
+    padding: 4px 0;
+    font-size: 18px;
+    text-align: center;
+    background: #0003;
+    transition: 0.2s;
+    &:hover {
+      color: rgb(255, 150, 12);
+    }
+  }
+}

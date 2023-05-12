@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: max-content;
+  width: 100%;
+  background: #0002;
+  .logo {
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    font-size: 28px;
+    padding: 4px;
+    font-family: "Righteous", cursive;
+    img {
+      width: 50px;
+    }
+  }
+  .user {
+    position: relative;
+    margin: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    a {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      text-transform: uppercase;
+      background: rgb(255, 150, 12);
+      border-radius: 50%;
+    }
+    .button {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: max-content;
+      transform: translate(calc(100% + 8px));
+      transition: 0.5s;
+      z-index: 1;
+      span {
+        display: block;
+        margin-top: 16px;
+        padding: 2px 8px;
+        background: rgb(255, 150, 12);
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        &:hover {
+          background: rgba(255, 45, 45, 0.9);
+        }
+      }
+    }
+    &:hover {
+      .button {
+        transform: translate(8px);
+      }
+    }
+  }
+  .login {
+    margin: 0 8px;
+    background: none;
+    font-size: 20px;
+    padding: 4px 16px;
+    border: 2px solid rgb(40, 176, 255);
+    border-radius: 10px;
+    transition: 0.2s;
+    &:hover {
+      background: rgb(40, 176, 255);
+    }
+  }
+}

@@ -1,0 +1,254 @@
+.general {
+  height: 100%;
+  .item {
+    display: flex;
+    width: 44%;
+    background: rgb(40, 176, 255, 0.1);
+    padding: 12px;
+    margin-bottom: 12px;
+    align-items: center;
+    justify-content: space-between;
+    .switch {
+      width: 0px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      &::before {
+        content: "";
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 24px;
+        background: #222;
+        border-radius: 15px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        width: 16px;
+        height: 16px;
+        transform: translateY(-50%);
+        background: #666;
+        border-radius: 50%;
+        transition: 0.2s;
+      }
+      &:checked::after {
+        right: 4px;
+        background: rgb(255, 150, 12);
+      }
+    }
+    button {
+      padding: 4px 16px;
+      background: #0003;
+      transition: 0.2s;
+      &:hover {
+        background: #0004;
+      }
+    }
+    &.freetime {
+      position: relative;
+      flex-direction: column;
+      .top {
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+      }
+      .list {
+        width: 100%;
+        max-height: 104px;
+        border-top: 1px solid #fff4;
+        list-style: none;
+        margin-top: 4px;
+        padding: 4px 0;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgb(40, 176, 255);
+        }
+        li {
+          padding: 2px 4px;
+          margin: 2px 0;
+          background: #0002;
+          text-align: center;
+          display: flex;
+          justify-content: space-between;
+          p {
+            overflow-x: auto;
+            white-space: nowrap;
+            &::-webkit-scrollbar {
+              height: 2px;
+            }
+            &::-webkit-scrollbar-thumb {
+              background: rgb(40, 176, 255);
+            }
+          }
+          &.empty {
+            color: rgba(255, 255, 255, 0.75);
+          }
+          .delete {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.75);
+            cursor: pointer;
+            margin-left: 4px;
+            &:hover {
+              color: rgba(255, 45, 45, 0.9);
+            }
+          }
+        }
+      }
+      .addFreetime {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #0d2d96;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 14px;
+        .close {
+          position: absolute;
+          right: 4px;
+          top: 4px;
+          font-size: 20px;
+          padding: 4px;
+          transition: 0.2s;
+          height: 23px;
+          display: flex;
+          align-items: center;
+          &:hover {
+            background: #0002;
+          }
+        }
+      }
+      .addingReason {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0 12px;
+        background: #0d2d96;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+          width: 75%;
+          padding: 4px;
+          background: none;
+          background: #0002;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom: 2px solid rgb(255, 150, 12, 0.75);
+          &:focus {
+            border-bottom: 2px solid rgb(255, 150, 12);
+          }
+        }
+        .close {
+          position: absolute;
+          right: 4px;
+          top: 4px;
+          font-size: 20px;
+          padding: 4px;
+          transition: 0.2s;
+          height: 23px;
+          display: flex;
+          align-items: center;
+          &:hover {
+            background: #0002;
+          }
+        }
+      }
+    }
+  }
+  .timepick {
+    position: relative;
+    width: 120px;
+    .picker {
+      width: 120px;
+      position: absolute;
+      left: 0;
+      top: -29px;
+      z-index: 3;
+      .pick_items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: #072380;
+        div {
+          width: 45%;
+          height: 84px;
+          overflow-y: hidden;
+          position: relative;
+          ul {
+            list-style: none;
+            transition: 0.2s;
+            li {
+              background: #0002;
+              text-align: center;
+              height: 28px;
+              border-bottom: 2px solid #fff2;
+            }
+          }
+          &::before {
+            content: "▶";
+            position: absolute;
+            left: 1px;
+            top: calc(50% - 1px);
+            transform: translateY(-50%);
+            font-size: 8px;
+            color: rgb(255, 150, 12);
+          }
+          &::after {
+            content: "◀";
+            position: absolute;
+            right: 1px;
+            top: calc(50% - 1px);
+            transform: translateY(-50%);
+            font-size: 8px;
+            color: rgb(255, 150, 12);
+          }
+        }
+
+        .dd {
+          transform: translateY(-3px);
+        }
+      }
+      button {
+        margin-top: 2px;
+        width: 100%;
+        background: #0003;
+        font-size: 16px;
+        transition: 0.2s;
+        &:hover {
+          background: #0004;
+          color: rgb(40, 176, 255);
+        }
+        &:active {
+          background: #0007;
+        }
+      }
+    }
+    .time {
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      background: #0002;
+      border-radius: 5px;
+      padding: 6px 0;
+      margin: 6px 0;
+      transition: 0.2s;
+      &:hover {
+        background: #0003;
+      }
+    }
+  }
+}
